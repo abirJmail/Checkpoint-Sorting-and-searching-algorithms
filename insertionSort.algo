@@ -1,0 +1,36 @@
+FUNCTION insertionSort (var T: ARRAY_OF INTEGER[]) : ARRAY_OF INTEGER[]
+VAR
+    j: INTEGER;
+    i: INTEGER;
+    key: INTEGER;
+BEGIN
+    FOR j FROM 1 TO T.length  STEP 1  DO
+        key:= T[j];
+        i :=j-1;
+        WHILE (i>-1 and T[i]>key ) DO
+            T[i+1]:= T[i];
+            i:= i-1;
+        END_WHILE
+        T[i+1] := key;
+    END_FOR
+    RETURN T ;
+END
+
+
+ALGORITHM INSERTION_SORT
+VAR
+    T : ARRAY_OF INTEGER[];
+    TAB : ARRAY_OF INTEGER[];
+    i : INTEGER;
+BEGIN
+    write ("your cards are :");
+    FOR i FROM 0 TO T.length-1 STEP 1  DO
+            read(T[i]);
+            write(T[i]);
+    END_FOR
+    TAB := insertionSort(T)
+    write (" the right place of your cards :");
+    FOR i FROM 0 TO TAB.length-1 STEP 1  DO
+            write(TAB[i]);
+    END_FOR
+END
